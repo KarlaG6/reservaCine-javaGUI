@@ -3,23 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /**
  *
  * @author karla
  */
 public class MovieFrame extends javax.swing.JFrame {
+	
+	int movieIndex = 0, movieEntradas = 0; String movieName = "", movieFunc = "", movieSala = "";
 
 	ImageIcon currentImg; String currentDesc;
 	ImageIcon interstellarImg = new ImageIcon("images/interstellar2.jpg");
 	ImageIcon matrixImg = new ImageIcon("images/matrix2.jpg");
 	ImageIcon rpoImg = new ImageIcon("images/readyplayerone.jpg");
 	ImageIcon tndImg = new ImageIcon("images/theneondemon2.jpg");
-	Movie selectedMovie = new Movie();
-//	String movies[] = {"-- selecione una --", "matrix", "ready player one", "interstellar", "the neon demon"};
-	
-	Movie none, matrix, interstellar, readyplayerone, theneondemon ;	
-	Movie myMovies[] = {none, matrix,interstellar, readyplayerone, theneondemon};
+//	Movie selectedMovie = new Movie();
+////	String movies[] = {"-- selecione una --", "matrix", "ready player one", "interstellar", "the neon demon"};
+//	
+//	Movie none, matrix, interstellar, readyplayerone, theneondemon ;	
+//	Movie myMovies[] = {none, matrix,interstellar, readyplayerone, theneondemon};
 	
 	String interstellarDesc = "<html>A mediados del siglo XXI, la destrucción de las cosechas en la Tierra"+
 			" ha hecho que la agricultura sea cada vez más difícil y se vea amenazada la supervivencia"+
@@ -60,20 +64,20 @@ public class MovieFrame extends javax.swing.JFrame {
         salaGroup = new javax.swing.ButtonGroup();
         title = new javax.swing.JLabel();
         cbmovies = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        pelisTitle = new javax.swing.JLabel();
         labelPic = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        subirPeli = new javax.swing.JButton();
         descTitle = new javax.swing.JLabel();
         showdesc = new javax.swing.JLabel();
         funcTitle = new javax.swing.JLabel();
         cbFuncsPan = new javax.swing.JPanel();
         rbFunc2 = new javax.swing.JRadioButton();
         rbFunc1 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jLabel3 = new javax.swing.JLabel();
+        salaTitle = new javax.swing.JLabel();
+        rbdosd = new javax.swing.JRadioButton();
+        rbtresd = new javax.swing.JRadioButton();
+        rbvip = new javax.swing.JRadioButton();
+        entradTitle = new javax.swing.JLabel();
         numEntraSp = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,16 +101,16 @@ public class MovieFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Peliculas");
+        pelisTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        pelisTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pelisTitle.setText("Peliculas");
 
         labelPic.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        subirPeli.setText("Submit");
+        subirPeli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                subirPeliActionPerformed(evt);
             }
         });
 
@@ -141,34 +145,43 @@ public class MovieFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Sala");
+        salaTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        salaTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        salaTitle.setText("Sala");
 
-        salaGroup.add(jRadioButton1);
-        jRadioButton1.setText("2D");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        salaGroup.add(rbdosd);
+        rbdosd.setText("2D");
+        rbdosd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rbdosdActionPerformed(evt);
             }
         });
 
-        salaGroup.add(jRadioButton2);
-        jRadioButton2.setText("3D");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        salaGroup.add(rbtresd);
+        rbtresd.setText("3D");
+        rbtresd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rbtresdActionPerformed(evt);
             }
         });
 
-        salaGroup.add(jRadioButton3);
-        jRadioButton3.setText("V.I.P");
+        salaGroup.add(rbvip);
+        rbvip.setText("V.I.P");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Entradas");
+        entradTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        entradTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        entradTitle.setText("Entradas");
 
+        numEntraSp.setModel(new javax.swing.SpinnerNumberModel(0, 0, 72, 1));
         numEntraSp.setAutoscrolls(true);
+        numEntraSp.setFocusable(false);
+        numEntraSp.setInheritsPopupMenu(true);
+        numEntraSp.setName(""); // NOI18N
+        numEntraSp.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numEntraSpStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout cbFuncsPanLayout = new javax.swing.GroupLayout(cbFuncsPan);
         cbFuncsPan.setLayout(cbFuncsPanLayout);
@@ -181,16 +194,16 @@ public class MovieFrame extends javax.swing.JFrame {
                 .addComponent(rbFunc2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cbFuncsPanLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(salaTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(entradTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(cbFuncsPanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
-                .addGap(32, 32, 32)
-                .addComponent(jRadioButton3)
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(rbdosd)
+                .addGap(18, 18, 18)
+                .addComponent(rbtresd)
+                .addGap(18, 18, 18)
+                .addComponent(rbvip)
                 .addGap(82, 82, 82)
                 .addComponent(numEntraSp, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55))
@@ -204,15 +217,14 @@ public class MovieFrame extends javax.swing.JFrame {
                     .addComponent(rbFunc2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cbFuncsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
+                    .addComponent(entradTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(salaTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cbFuncsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
-                    .addGroup(cbFuncsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioButton3)
-                        .addComponent(numEntraSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jRadioButton2))
+                .addGroup(cbFuncsPanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbvip)
+                    .addComponent(numEntraSp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rbtresd)
+                    .addComponent(rbdosd))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -224,11 +236,11 @@ public class MovieFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pelisTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbmovies, javax.swing.GroupLayout.Alignment.TRAILING, 0, 229, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(subirPeli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(showdesc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(descTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbFuncsPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -243,7 +255,7 @@ public class MovieFrame extends javax.swing.JFrame {
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pelisTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(descTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,16 +270,43 @@ public class MovieFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbFuncsPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(subirPeli)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-	labelPic.setIcon(interstellarImg);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void subirPeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subirPeliActionPerformed
+	
+	boolean listo;
+	
+	movieName = cbmovies.getSelectedItem().toString();
+//	movieFunc = funcGroup.getSelection().getSelectedObjects().toString();
+
+	if ( rbFunc1.isSelected()) {
+		movieFunc = rbFunc1.getText();
+	}else if ( rbFunc2.isSelected()) {
+		movieFunc = rbFunc2.getText();
+	}
+	
+	if ( rbdosd.isSelected() == true)
+		movieSala = rbdosd.getText();
+	else if (rbtresd.isSelected() == true)
+		movieSala = rbtresd.getText();
+	else if (rbvip.isSelected() == true)
+		movieSala = rbvip.getText();
+
+	movieEntradas = Integer.parseInt(numEntraSp.getValue().toString());
+	
+	listo = !(movieEntradas == 0 || movieName.contentEquals("") || movieFunc.contentEquals("") || movieSala.contentEquals(""));
+
+	if ( listo != true)
+		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "Tickets No Reservados", JOptionPane.ERROR_MESSAGE);
+	else
+		JOptionPane.showMessageDialog(null,"Usted escogió:\n"+"Pelicula: "+movieName, "Tickets Reservados", HEIGHT, currentImg);
+	
+    }//GEN-LAST:event_subirPeliActionPerformed
 
     private void cbmoviesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmoviesActionPerformed
         // TODO add your handling code here:
@@ -299,27 +338,36 @@ public class MovieFrame extends javax.swing.JFrame {
 			currentImg = null;
 			break;
 	}
+	
 	labelPic.setIcon(currentImg);
-	
-	
 	showdesc.setText(currentDesc);
     }//GEN-LAST:event_cbmoviesItemStateChanged
 
     private void rbFunc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFunc1ActionPerformed
-        // TODO add your handling code here:
+       if (rbFunc1.isSelected() == true)
+		rbFunc1.setFont(new Font ("Arial", 1,14));
+	else
+		rbFunc1.setFont(new Font ("Tahoma", 0,12));
     }//GEN-LAST:event_rbFunc1ActionPerformed
 
     private void rbFunc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFunc2ActionPerformed
-        // TODO add your handling code here:
+       if (rbFunc2.isSelected() == true)
+		rbFunc2.setFont(new Font ("Arial", 1,14));
+	else
+		rbFunc2.setFont(new Font ("Tahoma", 0,12));
     }//GEN-LAST:event_rbFunc2ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rbdosdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbdosdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rbdosdActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void rbtresdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtresdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_rbtresdActionPerformed
+
+    private void numEntraSpStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numEntraSpStateChanged
+//       int mynum = Integer.parseInt(numEntraSp.getValue().toString());
+    }//GEN-LAST:event_numEntraSpStateChanged
 
 	/**
 	 * @param args the command line arguments
@@ -361,21 +409,21 @@ public class MovieFrame extends javax.swing.JFrame {
     private javax.swing.JPanel cbFuncsPan;
     private javax.swing.JComboBox<String> cbmovies;
     private javax.swing.JLabel descTitle;
+    private javax.swing.JLabel entradTitle;
     private javax.swing.ButtonGroup funcGroup;
     private javax.swing.JLabel funcTitle;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JLabel labelPic;
     private javax.swing.JSpinner numEntraSp;
+    private javax.swing.JLabel pelisTitle;
     private javax.swing.JRadioButton rbFunc1;
     private javax.swing.JRadioButton rbFunc2;
+    private javax.swing.JRadioButton rbdosd;
+    private javax.swing.JRadioButton rbtresd;
+    private javax.swing.JRadioButton rbvip;
     private javax.swing.ButtonGroup salaGroup;
+    private javax.swing.JLabel salaTitle;
     private javax.swing.JLabel showdesc;
+    private javax.swing.JButton subirPeli;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
 }

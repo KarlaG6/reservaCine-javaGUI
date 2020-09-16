@@ -76,40 +76,5 @@ public class Movie {
 		return r;
 	}
 	
-//	public void fillAtributes(){
-//		Movie none, matrix, interstellar, readyplayerone, theneondemon ;	
-//		matrix.setMovieIndex(1); 
-//		matrix.setName("Matrix");
-//		matrix.setImg(matrixImg);
-//		matrix.setDescription("Thomas A. Anderson (Keanu Reeves) es programador informático de día y"+
-//			" un hacker llamado Neo de noche. Lleva toda su vida intuyendo que hay algo más,"+
-//			" que hay algo que falla y esa duda se ve reafirmada con un mensaje"+
-//			"recibido en su ordenador: «Matrix te posee».");
-//		
-//		interstellar.setMovieIndex(3);
-//		interstellar.setName("Interstellar");
-//		interstellar.setImg(interstellarImg);
-//		interstellar.setDescription("A mediados del siglo XXI, la destrucción de las cosechas en la Tierra"+
-//			" ha hecho que la agricultura sea cada vez más difícil y se vea amenazada la supervivencia"+
-//			"de la humanidad. Joseph Cooper, viudo, exingeniero y piloto de la NASA, dirige una granja "+
-//			"con su suegro Donald, su hijo Tom y su hija Murphy, quien cree que su habitación está "+
-//			"embrujada por un poltergeist.");
-//		
-//		readyplayerone.setMovieIndex(2);
-//		readyplayerone.setName("Ready player one");
-//		readyplayerone.setImg(rpoImg);
-//		readyplayerone.setDescription("La historia sigue los pasos del joven Wade Owen Watts, "+
-//			"un jugador de videojuegos del año 2045 que, como el resto de la humanidad,"+
-//			"prefiere el metauniverso de realidad virtual OASIS al cada vez más sombrío mundo real.");
-//		
-//		theneondemon.setMovieIndex(4);
-//		theneondemon.setName("the neon demon");
-//		theneondemon.setImg(tndImg);
-//		theneondemon.setDescription("Thomas A. Anderson (Keanu Reeves) es programador informático de día y"+
-//			" un hacker llamado Neo de noche. Lleva toda su vida intuyendo que hay algo más,"+
-//			" que hay algo que falla y esa duda se ve reafirmada con un mensaje"+
-//			"recibido en su ordenador: «Matrix te posee».");
-//		
-//	}
 	
 }

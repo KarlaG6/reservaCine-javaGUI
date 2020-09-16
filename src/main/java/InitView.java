@@ -1,5 +1,7 @@
 
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,6 +15,12 @@ import java.awt.Color;
  */
 public class InitView extends javax.swing.JFrame {
 
+	boolean listoMovie = false;
+	String movieName = "", movieFunc = "",  movieSala = ""; int movieEntradas = 0; ImageIcon currentImg; boolean listo = false;
+//	String movieName, String movieFunc, String movieSala, int movieEntradas, ImageIcon currentImg,
+//	movieName,movieFunc, movieSala, movieEntradas, currentImg,
+//	String movieName1, String movieFunc1, String movieSala1, int movieEntradas1, ImageIcon currentImg1,
+	
 	/**
 	 * Creates new form InitView
 	 */
@@ -21,6 +29,22 @@ public class InitView extends javax.swing.JFrame {
 		getContentPane().setBackground(Color.BLACK);
 	}
 
+	public InitView(String movieName, boolean listo) {
+		initComponents();
+		
+		getValues( movieName, listo);
+	}
+	
+	void getValues( String movieName1, boolean listo1){
+		System.out.println("name: "+movieName1+" - movie: "+ listo1);
+		JOptionPane.showMessageDialog(null, "name: "+movieName1+" - movie: "+ listo1, "GENIAL", JOptionPane.INFORMATION_MESSAGE);
+		listoMovie = listo1;
+		if (listo1){
+			cbMovie.setSelected(true);
+			moviePanel.setBackground(Color.PINK);
+		}
+	}
+	
 	/**
 	 * This method is called from within the constructor to initialize the form.
 	 * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,106 +55,121 @@ public class InitView extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jPanel2 = new javax.swing.JPanel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jPanel3 = new javax.swing.JPanel();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        moviePanel = new javax.swing.JPanel();
+        cbMovie = new javax.swing.JCheckBox();
+        chairPanel = new javax.swing.JPanel();
+        cbChairs = new javax.swing.JCheckBox();
+        payPanel = new javax.swing.JPanel();
+        cbPay = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 255));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("RESERVA DE TICKETS");
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        moviePanel.setBackground(new java.awt.Color(102, 102, 102));
+        moviePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
+                moviePanelMouseClicked(evt);
+            }
+        });
+        moviePanel.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                moviePanelComponentShown(evt);
             }
         });
 
-        jCheckBox1.setBackground(new java.awt.Color(102, 102, 102));
-        jCheckBox1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Pelicula");
-        jCheckBox1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbMovie.setBackground(new java.awt.Color(102, 102, 102));
+        cbMovie.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cbMovie.setForeground(new java.awt.Color(255, 255, 255));
+        cbMovie.setText("Pelicula");
+        cbMovie.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cbMovieActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout moviePanelLayout = new javax.swing.GroupLayout(moviePanel);
+        moviePanel.setLayout(moviePanelLayout);
+        moviePanelLayout.setHorizontalGroup(
+            moviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanelLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        moviePanelLayout.setVerticalGroup(
+            moviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(moviePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
+                .addComponent(cbMovie)
                 .addContainerGap(154, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        chairPanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        jCheckBox2.setBackground(new java.awt.Color(102, 102, 102));
-        jCheckBox2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("Sala/Asientos");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        cbChairs.setBackground(new java.awt.Color(102, 102, 102));
+        cbChairs.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cbChairs.setForeground(new java.awt.Color(255, 255, 255));
+        cbChairs.setText("Sala/Asientos");
+        cbChairs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                cbChairsActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout chairPanelLayout = new javax.swing.GroupLayout(chairPanel);
+        chairPanel.setLayout(chairPanelLayout);
+        chairPanelLayout.setHorizontalGroup(
+            chairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chairPanelLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jCheckBox2)
+                .addComponent(cbChairs)
                 .addGap(17, 17, 17))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        chairPanelLayout.setVerticalGroup(
+            chairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chairPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox2)
+                .addComponent(cbChairs)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        payPanel.setBackground(new java.awt.Color(102, 102, 102));
 
-        jCheckBox3.setBackground(new java.awt.Color(102, 102, 102));
-        jCheckBox3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jCheckBox3.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox3.setText("Pago");
+        cbPay.setBackground(new java.awt.Color(102, 102, 102));
+        cbPay.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        cbPay.setForeground(new java.awt.Color(255, 255, 255));
+        cbPay.setText("Pago");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout payPanelLayout = new javax.swing.GroupLayout(payPanel);
+        payPanel.setLayout(payPanelLayout);
+        payPanelLayout.setHorizontalGroup(
+            payPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(payPanelLayout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbPay, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(71, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        payPanelLayout.setVerticalGroup(
+            payPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(payPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox3)
+                .addComponent(cbPay)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -150,11 +189,11 @@ public class InitView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(moviePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(chairPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(payPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -164,9 +203,9 @@ public class InitView extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(moviePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chairPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(payPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -175,21 +214,39 @@ public class InitView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void cbMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMovieActionPerformed
+       
+    }//GEN-LAST:event_cbMovieActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void cbChairsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbChairsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_cbChairsActionPerformed
 
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+    private void moviePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moviePanelMouseClicked
        MovieFrame movFr = new MovieFrame();
 	   movFr.setVisible(true);
 	   this.setVisible(false);
 	   this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 	   this.dispose();
-    }//GEN-LAST:event_jPanel1MouseClicked
+	   
+    }//GEN-LAST:event_moviePanelMouseClicked
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+//       aja
+
+		   
+    }//GEN-LAST:event_formComponentShown
+
+    private void moviePanelComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_moviePanelComponentShown
+       
+    }//GEN-LAST:event_moviePanelComponentShown
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+       if (listo)
+		JOptionPane.showMessageDialog(rootPane,movieName, movieSala, HEIGHT, currentImg);
+	
+	
+    }//GEN-LAST:event_formWindowActivated
 
 	/**
 	 * @param args the command line arguments
@@ -227,13 +284,13 @@ public class InitView extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox cbChairs;
+    private javax.swing.JCheckBox cbMovie;
+    private javax.swing.JCheckBox cbPay;
+    private javax.swing.JPanel chairPanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel moviePanel;
+    private javax.swing.JPanel payPanel;
     // End of variables declaration//GEN-END:variables
 }

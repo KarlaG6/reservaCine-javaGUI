@@ -291,21 +291,21 @@ public class MovieFrame extends javax.swing.JFrame {
 		movieFunc = rbFunc2.getText();
 	}
 	
-	if ( rbdosd.isSelected() == true)
+	if ( rbdosd.isSelected() )
 		movieSala = rbdosd.getText();
-	else if (rbtresd.isSelected() == true)
+	else if (rbtresd.isSelected())
 		movieSala = rbtresd.getText();
-	else if (rbvip.isSelected() == true)
+	else if (rbvip.isSelected())
 		movieSala = rbvip.getText();
 
 	movieEntradas = Integer.parseInt(numEntraSp.getValue().toString());
 	
 	listo = !(movieEntradas == 0 || movieName.contentEquals("") || movieFunc.contentEquals("") || movieSala.contentEquals(""));
 
-	if ( listo != true)
-		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "Tickets No Reservados", JOptionPane.ERROR_MESSAGE);
-	else
+	if ( listo )
 		JOptionPane.showMessageDialog(null,"Usted escogió:\n"+"Pelicula: "+movieName, "Tickets Reservados", HEIGHT, currentImg);
+	else
+		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "Tickets No Reservados", JOptionPane.ERROR_MESSAGE);
 	
     }//GEN-LAST:event_subirPeliActionPerformed
 

@@ -36,12 +36,11 @@ public class InitView extends javax.swing.JFrame {
 	}
 	
 	void getValues( String movieName1, boolean listo1){
-		System.out.println("name: "+movieName1+" - movie: "+ listo1);
-		JOptionPane.showMessageDialog(null, "name: "+movieName1+" - movie: "+ listo1, "GENIAL", JOptionPane.INFORMATION_MESSAGE);
 		listoMovie = listo1;
 		if (listo1){
 			cbMovie.setSelected(true);
-			moviePanel.setBackground(Color.PINK);
+//			moviePanel.setBackground(Color.PINK);
+			moviePanLabel.setText(movieName1);
 		}
 	}
 	
@@ -57,10 +56,13 @@ public class InitView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         moviePanel = new javax.swing.JPanel();
         cbMovie = new javax.swing.JCheckBox();
+        moviePanLabel = new javax.swing.JLabel();
         chairPanel = new javax.swing.JPanel();
         cbChairs = new javax.swing.JCheckBox();
+        chairPanLabel = new javax.swing.JLabel();
         payPanel = new javax.swing.JPanel();
         cbPay = new javax.swing.JCheckBox();
+        payPanLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -103,6 +105,10 @@ public class InitView extends javax.swing.JFrame {
             }
         });
 
+        moviePanLabel.setForeground(new java.awt.Color(255, 255, 255));
+        moviePanLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        moviePanLabel.setText("[ Eliga una ]");
+
         javax.swing.GroupLayout moviePanelLayout = new javax.swing.GroupLayout(moviePanel);
         moviePanel.setLayout(moviePanelLayout);
         moviePanelLayout.setHorizontalGroup(
@@ -111,13 +117,16 @@ public class InitView extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addComponent(cbMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
+            .addComponent(moviePanLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         moviePanelLayout.setVerticalGroup(
             moviePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(moviePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cbMovie)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(moviePanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         chairPanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -132,21 +141,29 @@ public class InitView extends javax.swing.JFrame {
             }
         });
 
+        chairPanLabel.setForeground(new java.awt.Color(255, 255, 255));
+        chairPanLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chairPanLabel.setText("[ Elergirlos ]");
+        chairPanLabel.setToolTipText("");
+
         javax.swing.GroupLayout chairPanelLayout = new javax.swing.GroupLayout(chairPanel);
         chairPanel.setLayout(chairPanelLayout);
         chairPanelLayout.setHorizontalGroup(
             chairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, chairPanelLayout.createSequentialGroup()
+            .addGroup(chairPanelLayout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(cbChairs)
                 .addGap(17, 17, 17))
+            .addComponent(chairPanLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         chairPanelLayout.setVerticalGroup(
             chairPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(chairPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cbChairs)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(chairPanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         payPanel.setBackground(new java.awt.Color(102, 102, 102));
@@ -156,6 +173,10 @@ public class InitView extends javax.swing.JFrame {
         cbPay.setForeground(new java.awt.Color(255, 255, 255));
         cbPay.setText("Pago");
 
+        payPanLabel.setForeground(new java.awt.Color(255, 255, 255));
+        payPanLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        payPanLabel.setText("[ Eliga un metodo ]");
+
         javax.swing.GroupLayout payPanelLayout = new javax.swing.GroupLayout(payPanel);
         payPanel.setLayout(payPanelLayout);
         payPanelLayout.setHorizontalGroup(
@@ -164,12 +185,15 @@ public class InitView extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addComponent(cbPay, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(71, Short.MAX_VALUE))
+            .addComponent(payPanLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         payPanelLayout.setVerticalGroup(
             payPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(payPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cbPay)
+                .addGap(51, 51, 51)
+                .addComponent(payPanLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -287,10 +311,13 @@ public class InitView extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbChairs;
     private javax.swing.JCheckBox cbMovie;
     private javax.swing.JCheckBox cbPay;
+    private javax.swing.JLabel chairPanLabel;
     private javax.swing.JPanel chairPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel moviePanLabel;
     private javax.swing.JPanel moviePanel;
+    private javax.swing.JLabel payPanLabel;
     private javax.swing.JPanel payPanel;
     // End of variables declaration//GEN-END:variables
 }

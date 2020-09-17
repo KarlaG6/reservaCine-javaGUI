@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,10 +27,14 @@ public class ChairsFrame extends javax.swing.JFrame {
 	}
 	
 	void exeAlways (int nChairs){
+		movieEntradas = nChairs;
 		nChairsMissin = nChairs;
 		
 		ChairMissingSt = Integer.toString(nChairs);
 		chairsMissing.setText(ChairMissingSt);
+		
+		
+			
 	}
 
 	/**
@@ -288,7 +295,7 @@ public class ChairsFrame extends javax.swing.JFrame {
                             .addComponent(G2)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(F1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(G1)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -340,7 +347,7 @@ public class ChairsFrame extends javax.swing.JFrame {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 230, Short.MAX_VALUE)))
+                        .addGap(0, 228, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
@@ -371,163 +378,243 @@ public class ChairsFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void D0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D0ActionPerformed
-       if (D0.isSelected())
+       if (D0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!D0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		D0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_D0ActionPerformed
 
     private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
-       if (A2.isSelected())
+       if (A2.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!A2.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		A2.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_A2ActionPerformed
 
     private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
-       if (A1.isSelected())
+       if (A1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!A1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		A1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_A1ActionPerformed
 
     private void A0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A0ActionPerformed
-       if (A0.isSelected())
+       if (A0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!A0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		A0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_A0ActionPerformed
 
     private void B0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B0ActionPerformed
-       if (B0.isSelected())
+       if (B0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!B0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		B0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_B0ActionPerformed
 
     private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
-       if (B1.isSelected())
+       if (B1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!B1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		B1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_B1ActionPerformed
 
     private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
-       if (B2.isSelected())
+       if (B2.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!B2.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		B2.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_B2ActionPerformed
 
     private void C0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C0ActionPerformed
-       if (C0.isSelected())
+       if (C0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!C0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		C0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_C0ActionPerformed
 
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
-       if (C1.isSelected())
+       if (C1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!C1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		C1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_C1ActionPerformed
 
     private void D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D1ActionPerformed
-       if (D1.isSelected())
+       if (D1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!D1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		D1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_D1ActionPerformed
 
     private void E0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E0ActionPerformed
-       if (E0.isSelected())
+       if (E0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!E0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		E0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_E0ActionPerformed
 
     private void E1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E1ActionPerformed
-       if (E1.isSelected())
+       if (E1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!E1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		E1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_E1ActionPerformed
 
     private void F0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F0ActionPerformed
-       if (F0.isSelected())
+       if (F0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!F0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		F0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_F0ActionPerformed
 
     private void F1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F1ActionPerformed
-       if (F1.isSelected())
+       if (F1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!F1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		F1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_F1ActionPerformed
 
     private void G0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G0ActionPerformed
-       if (G0.isSelected())
+       if (G0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!G0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		G0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_G0ActionPerformed
 
     private void G1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G1ActionPerformed
-       if (G1.isSelected())
+       if (G1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!G1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		G1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_G1ActionPerformed
 
     private void G2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G2ActionPerformed
-       if (G2.isSelected())
+       if (G2.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!G2.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		G2.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_G2ActionPerformed
 
     private void H0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_H0ActionPerformed
-       if (H0.isSelected())
+       if (H0.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!H0.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		H0.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_H0ActionPerformed
 
     private void H1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_H1ActionPerformed
-       if (H1.isSelected())
+       if (H1.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!H1.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		H1.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_H1ActionPerformed
 
     private void H2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_H2ActionPerformed
-       if (H2.isSelected())
+       if (H2.isSelected() && nChairsSelected<movieEntradas)
 		nChairsSelected++;
-	else
+	else if (!H2.isSelected() && nChairsSelected<=movieEntradas)
 		nChairsSelected--;
-	System.out.println(nChairsSelected);
+	else {
+		H2.setSelected(false);
+		JOptionPane.showMessageDialog(null,"Ya no puede escoger mas sillas", "Limite de Asientos alcanzado", JOptionPane.INFORMATION_MESSAGE);
+	}
+	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_H2ActionPerformed
 
 	/**

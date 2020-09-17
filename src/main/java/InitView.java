@@ -34,7 +34,7 @@ public class InitView extends javax.swing.JFrame {
 		
 		getValues( movieName, movieFunc, movieSala, movieEntradas, currentImg, listo);
 	}
-		
+	
 	void getValues( String movieName1, String movieFunc1, String movieSala1, int movieEntradas1, ImageIcon currentImg1, boolean listo1){
 		listoMovie = listo1;
 		movieEntradas =  movieEntradas1;

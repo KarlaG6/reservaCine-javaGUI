@@ -7,3 +7,5 @@ Mejorar:
     -Visual
         -tema
         -estilo elementos
+
+# Proyecto Mejorado aquí  https://github.com/KarlaG6/reservaCine-javaGUI

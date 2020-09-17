@@ -77,7 +77,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="rbvalidDeb" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                       <Component id="cbdebCard" alignment="1" min="-2" pref="80" max="-2" attributes="0"/>
                       <Component id="debCardtitle" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
@@ -110,10 +109,7 @@
                       <Component id="cbdebCard" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="rbvalidDeb" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rbvalidCred" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="rbvalidCred" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -161,14 +157,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbcredCardActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JRadioButton" name="rbvalidDeb">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Valida"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbvalidDebActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbvalidCred">

@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -17,9 +18,9 @@ public class InitView extends javax.swing.JFrame {
 
 	boolean listoMovie = false;
 	String movieName = "", movieFunc = "",  movieSala = ""; int movieEntradas = 0; ImageIcon currentImg; boolean listo = false;
-//	
-//	
-//	
+	
+	ArrayList<String> chairs = new ArrayList<>();
+	
 	
 	/**
 	 * Creates new form InitView
@@ -27,22 +28,47 @@ public class InitView extends javax.swing.JFrame {
 	public InitView() {
 		initComponents();
 		getContentPane().setBackground(Color.BLACK);
+		if (listoMovie){
+			cbMovie.setSelected(true);
+//			moviePanel.setBackground(Color.PINK);
+			moviePanLabel.setText(movieName);
+		}
 	}
 
 	public InitView(String movieName, String movieFunc, String movieSala, int movieEntradas, ImageIcon currentImg,boolean listo) {
 		initComponents();
 		
 		getValues( movieName, movieFunc, movieSala, movieEntradas, currentImg, listo);
+		
+	}
+	public InitView(ArrayList<String> finalChairs,  String movieName) {
+		initComponents();
+		getValsChairs(finalChairs,  movieName);
 	}
 	
 	void getValues( String movieName1, String movieFunc1, String movieSala1, int movieEntradas1, ImageIcon currentImg1, boolean listo1){
 		listoMovie = listo1;
 		movieEntradas =  movieEntradas1;
+		movieName = movieName1;
+		movieFunc = movieFunc1;
+		movieSala = movieSala1;
+		currentImg = currentImg1;
 		if (listo1){
 			cbMovie.setSelected(true);
 //			moviePanel.setBackground(Color.PINK);
 			moviePanLabel.setText(movieName1);
 		}
+	}
+//	debo recibir los valores relevantes de getvalues() porque sino pierdo el progreso
+	void getValsChairs( ArrayList<String> finalChairs1, String movieName1){
+		chairs = finalChairs1;
+		movieName = movieName1;
+		if (!chairs.isEmpty())
+			chairPanLabel.setText(chairs.toString());
+			cbChairs.setSelected(true);
+		cbMovie.setSelected(true);
+//		moviePanel.setBackground(Color.PINK);
+		moviePanLabel.setText(movieName1);
 	}
 	
 	/**
@@ -173,6 +199,11 @@ public class InitView extends javax.swing.JFrame {
         );
 
         payPanel.setBackground(new java.awt.Color(102, 102, 102));
+        payPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                payPanelMouseClicked(evt);
+            }
+        });
 
         cbPay.setBackground(new java.awt.Color(102, 102, 102));
         cbPay.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -280,7 +311,7 @@ public class InitView extends javax.swing.JFrame {
     private void chairPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chairPanelMouseClicked
        
 	if (listoMovie){
-		ChairsFrame chairsFr = new ChairsFrame(movieEntradas);
+		ChairsFrame chairsFr = new ChairsFrame(movieEntradas,  movieName);
 		chairsFr.setVisible(true);
 		this.setVisible(false);
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -289,6 +320,15 @@ public class InitView extends javax.swing.JFrame {
 		JOptionPane.showMessageDialog(null,"Debe elegir primero una pelicula haciendo click en la tarjeta de pelicula", "Pelicula No Elegida", JOptionPane.ERROR_MESSAGE);
 	
     }//GEN-LAST:event_chairPanelMouseClicked
+
+    private void payPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_payPanelMouseClicked
+//       PayFrame payFr = new PayFrame();
+//	   payFr.setVisible(true);
+//	this.setVisible(false);
+//	this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+//	this.dispose();
+	   
+    }//GEN-LAST:event_payPanelMouseClicked
 
 	/**
 	 * @param args the command line arguments

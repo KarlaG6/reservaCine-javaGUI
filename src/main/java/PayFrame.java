@@ -44,7 +44,6 @@ public class PayFrame extends javax.swing.JFrame {
         cardTitle = new javax.swing.JLabel();
         cbdebCard = new javax.swing.JCheckBox();
         cbcredCard = new javax.swing.JCheckBox();
-        rbvalidDeb = new javax.swing.JRadioButton();
         rbvalidCred = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -84,13 +83,6 @@ public class PayFrame extends javax.swing.JFrame {
             }
         });
 
-        rbvalidDeb.setText("Valida");
-        rbvalidDeb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbvalidDebActionPerformed(evt);
-            }
-        });
-
         rbvalidCred.setText("Valida");
         rbvalidCred.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +97,6 @@ public class PayFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cardPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(cardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(rbvalidDeb, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbdebCard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(debCardtitle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -131,9 +122,7 @@ public class PayFrame extends javax.swing.JFrame {
                     .addComponent(cbcredCard, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cbdebCard, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(cardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbvalidDeb)
-                    .addComponent(rbvalidCred))
+                .addComponent(rbvalidCred)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -274,10 +263,6 @@ public class PayFrame extends javax.swing.JFrame {
 	}
     }//GEN-LAST:event_cbcredCardActionPerformed
 
-    private void rbvalidDebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbvalidDebActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbvalidDebActionPerformed
-
     private void rbvalidCredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbvalidCredActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbvalidCredActionPerformed
@@ -314,8 +299,8 @@ public class PayFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_rbNoReservarStateChanged
 
     private void subirPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subirPayActionPerformed
-	if ( !cbdebCard.isSelected() && !cbcredCard.isSelected() || cbdebCard.isSelected() && !rbvalidDeb.isSelected() || 
-		cbcredCard.isSelected() && !rbvalidCred.isSelected() || !rbReservar.isSelected() && !rbNoReservar.isSelected() )
+	if ( !cbdebCard.isSelected() && !cbcredCard.isSelected() || cbcredCard.isSelected() && !rbvalidCred.isSelected() ||
+										!rbReservar.isSelected() && !rbNoReservar.isSelected() )
 		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "Tickets No Reservados", JOptionPane.ERROR_MESSAGE);
 	else
 		JOptionPane.showMessageDialog(null,"Su total a pagar es de: $"+totalPay, "Tickets Pagados", JOptionPane.INFORMATION_MESSAGE);
@@ -369,7 +354,6 @@ public class PayFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbNoReservar;
     private javax.swing.JRadioButton rbReservar;
     private javax.swing.JRadioButton rbvalidCred;
-    private javax.swing.JRadioButton rbvalidDeb;
     private javax.swing.ButtonGroup reservGroup;
     private javax.swing.JButton subirPay;
     // End of variables declaration//GEN-END:variables

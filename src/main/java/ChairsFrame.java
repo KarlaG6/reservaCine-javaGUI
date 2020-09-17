@@ -1,6 +1,6 @@
 
 import javax.swing.JOptionPane;
-
+import java.util.ArrayList;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +13,16 @@ import javax.swing.JOptionPane;
  */
 public class ChairsFrame extends javax.swing.JFrame {
 
-	
+	String  movieName = "";	
 	int movieEntradas = 0, nChairsSelected = 0, nChairsMissin = 0; String ChairMissingSt = "";
+	
+	ArrayList<String> finalChairs = new ArrayList<>();
+	ArrayList<Boolean> chairs = new ArrayList<>();
+	ArrayList<String> ChairsNames = new ArrayList<>();
+//	String[] finalChairs = {};
+//	boolean[] chairs = {};
+//	String[] chairsNames = {};
+	
 	/**
 	 * Creates new form ChairsFrame
 	 */
@@ -22,20 +30,19 @@ public class ChairsFrame extends javax.swing.JFrame {
 		initComponents();
 	}
 	
-	public ChairsFrame(int movieEntradas) {
+	public ChairsFrame(int movieEntradas, String  movieName) {
 		initComponents();
-		exeAlways(movieEntradas);
+		exeAlways(movieEntradas, movieName);
 	}
 	
-	void exeAlways (int nChairs){
+	void exeAlways (int nChairs, String  movieName1){
 		movieEntradas = nChairs;
 		nChairsMissin = nChairs;
 		
+		movieName = movieName1;
+		
 		ChairMissingSt = Integer.toString(nChairs);
 		movieschairs.setText(ChairMissingSt);
-		
-		
-			
 	}
 
 	/**
@@ -199,6 +206,11 @@ public class ChairsFrame extends javax.swing.JFrame {
         );
 
         elegirAsientos.setText("Elegir Asientos");
+        elegirAsientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elegirAsientosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Asientos a elegir :");
@@ -621,6 +633,40 @@ public class ChairsFrame extends javax.swing.JFrame {
 	}
 	System.out.println(nChairsSelected+" : "+movieEntradas);
     }//GEN-LAST:event_H2ActionPerformed
+
+    private void elegirAsientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elegirAsientosActionPerformed
+
+		chairs.add(A0.isSelected()); ChairsNames.add("A0");
+		chairs.add(A1.isSelected()); ChairsNames.add("A1");
+		chairs.add(A2.isSelected()); ChairsNames.add("A2");
+		chairs.add(B0.isSelected()); ChairsNames.add("B0");
+		chairs.add(B1.isSelected()); ChairsNames.add("B1");
+		chairs.add(B2.isSelected()); ChairsNames.add("B2");
+		chairs.add(C0.isSelected()); ChairsNames.add("C0");
+		chairs.add(C1.isSelected()); ChairsNames.add("C1");
+		chairs.add(D0.isSelected()); ChairsNames.add("D0");
+		chairs.add(D1.isSelected()); ChairsNames.add("D1");
+		chairs.add(E0.isSelected()); ChairsNames.add("E0");
+		chairs.add(E1.isSelected()); ChairsNames.add("E1");
+		chairs.add(F0.isSelected()); ChairsNames.add("F0");
+		chairs.add(F1.isSelected()); ChairsNames.add("F1");
+		chairs.add(G0.isSelected()); ChairsNames.add("G0");
+		chairs.add(G1.isSelected()); ChairsNames.add("G1");
+		chairs.add(G2.isSelected()); ChairsNames.add("G2");
+		chairs.add(H0.isSelected()); ChairsNames.add("H0");
+		chairs.add(H1.isSelected()); ChairsNames.add("H1");
+		chairs.add(H2.isSelected()); ChairsNames.add("H2");
+		
+	for (int i=0; i<chairs.size(); i++){
+		if (chairs.get(i))
+			finalChairs.add(ChairsNames.get(i));
+	}
+	System.out.println(finalChairs);
+	
+	System.out.println(movieName);
+	new InitView(finalChairs,  movieName).setVisible(true);
+	this.setVisible(false);
+    }//GEN-LAST:event_elegirAsientosActionPerformed
 
 	/**
 	 * @param args the command line arguments

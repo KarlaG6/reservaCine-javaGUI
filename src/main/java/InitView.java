@@ -17,9 +17,13 @@ import javax.swing.JOptionPane;
 public class InitView extends javax.swing.JFrame {
 
 	boolean listoMovie = false;
-	String movieName = "", movieFunc = "",  movieSala = ""; int movieEntradas = 0; ImageIcon currentImg; boolean listo = false;
+	String movieName = "", movieFunc = "",  movieSala = ""; int movieEntradas = 0; 
+	ImageIcon currentImg; boolean listo = false; String currentMovie;
 	
 	ArrayList<String> chairs = new ArrayList<>();
+	
+	ArrayList<String> reservasNames = new ArrayList<>();
+	ArrayList<Integer> reservasNum = new ArrayList<>();
 	
 	
 	/**
@@ -33,6 +37,10 @@ public class InitView extends javax.swing.JFrame {
 //			moviePanel.setBackground(Color.PINK);
 			moviePanLabel.setText(movieName);
 		}
+		reservasNames.add("matrix");
+		reservasNames.add("ready player one");
+		reservasNames.add("interstellar");
+		reservasNames.add("the neon demon");
 	}
 
 	public InitView(String movieName, String movieFunc, String movieSala, int movieEntradas, ImageIcon currentImg,boolean listo) {
@@ -44,6 +52,12 @@ public class InitView extends javax.swing.JFrame {
 	public InitView(ArrayList<String> finalChairs,  String movieName) {
 		initComponents();
 		getValsChairs(finalChairs,  movieName);
+	}
+	
+	public InitView(int paidValue) {
+		initComponents();
+		cbPay.setSelected(true);
+		payPanLabel.setText("[ $ "+Integer.toString(paidValue)+" ]");
 	}
 	
 	void getValues( String movieName1, String movieFunc1, String movieSala1, int movieEntradas1, ImageIcon currentImg1, boolean listo1){
@@ -236,6 +250,11 @@ public class InitView extends javax.swing.JFrame {
         );
 
         jButton1.setText("Reservar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -330,6 +349,25 @@ public class InitView extends javax.swing.JFrame {
 	this.dispose();
 	   
     }//GEN-LAST:event_payPanelMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+	int num = reservasNum.get(0);
+	if (movieName.contentEquals("matrix")){
+		num = reservasNum.get(0);
+		 reservasNum.add(num++); 
+	}else if (movieName.contentEquals("ready player one")){
+		num = reservasNum.get(1);
+		reservasNum.add(num++); 
+	}else if (movieName.contentEquals("interstellar")){
+		num = reservasNum.get(2);
+		reservasNum.add(num++); 
+	}else if (movieName.contentEquals("the neon demon")){
+		num = reservasNum.get(3);
+		reservasNum.add(num++); 
+	}
+		 
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 	/**
 	 * @param args the command line arguments

@@ -118,6 +118,7 @@ public class MovieFrame extends javax.swing.JFrame {
         rbvip = new javax.swing.JRadioButton();
         entradTitle = new javax.swing.JLabel();
         numEntraSp = new javax.swing.JSpinner();
+        seeRating = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
@@ -268,6 +269,13 @@ public class MovieFrame extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        seeRating.setText("Ver Rating");
+        seeRating.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeRatingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -284,7 +292,8 @@ public class MovieFrame extends javax.swing.JFrame {
                     .addComponent(showdesc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(descTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbFuncsPan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(funcTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(funcTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(seeRating, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41))
             .addComponent(title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -309,7 +318,9 @@ public class MovieFrame extends javax.swing.JFrame {
                         .addComponent(funcTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbFuncsPan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(seeRating)
+                        .addGap(30, 30, 30)
                         .addComponent(subirPeli)))
                 .addContainerGap())
         );
@@ -421,6 +432,11 @@ public class MovieFrame extends javax.swing.JFrame {
 //       int mynum = Integer.parseInt(numEntraSp.getValue().toString());
     }//GEN-LAST:event_numEntraSpStateChanged
 
+    private void seeRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeRatingActionPerformed
+       new favsFrame().setVisible(true);
+		this.setVisible(false);
+    }//GEN-LAST:event_seeRatingActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -474,6 +490,7 @@ public class MovieFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbvip;
     private javax.swing.ButtonGroup salaGroup;
     private javax.swing.JLabel salaTitle;
+    private javax.swing.JButton seeRating;
     private javax.swing.JLabel showdesc;
     private javax.swing.JButton subirPeli;
     private javax.swing.JLabel title;

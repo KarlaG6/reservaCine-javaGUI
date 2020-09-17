@@ -49,6 +49,7 @@
                   <Component id="descTitle" max="32767" attributes="0"/>
                   <Component id="cbFuncsPan" max="32767" attributes="0"/>
                   <Component id="funcTitle" max="32767" attributes="0"/>
+                  <Component id="seeRating" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
@@ -78,7 +79,9 @@
                       <Component id="funcTitle" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="cbFuncsPan" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="95" max="32767" attributes="0"/>
+                      <EmptySpace pref="44" max="32767" attributes="0"/>
+                      <Component id="seeRating" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="subirPeli" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -319,5 +322,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="seeRating">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver Rating"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seeRatingActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

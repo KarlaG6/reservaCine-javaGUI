@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -16,15 +17,34 @@ public class PayFrame extends javax.swing.JFrame {
 	
 	ImageIcon icon = new ImageIcon("images/hearticket.png");
 	
-	 int debValue = 0, credValue=0, totalPay=0; boolean err = true, go = true;
+	 int debValue = 0, credValue=0, paidValue=0; boolean err = true, go = true;
 	 Object[] result = null ; int ent = 0;
 	
+	final int  entrada = 7000; int totalPay = 0; String totalPaySt = "";
+	String movieName = ""; int movieEntradas = 1;
 
 	/**
 	 * Creates new form PayFrame
 	 */
 	public PayFrame() {
 		initComponents();
+	}
+	
+	public PayFrame(String movieName,int movieEntradas) {
+		initComponents();
+		exeVars(movieName,movieEntradas);
+	}
+	
+	void exeVars(String movieName1,int movieEntradas1 ){
+		movieName = movieName1;
+		movieEntradas = movieEntradas1;
+		
+		totalPayLabel.setForeground(Color.GREEN);
+		//Calcular el pago total
+		totalPay= entrada*movieEntradas;
+		totalPaySt = Integer.toString(totalPay);
+		totalPaySt = "$ "+totalPaySt; 
+		totalPayLabel.setText(totalPaySt);
 	}
 
 	/**
@@ -50,6 +70,8 @@ public class PayFrame extends javax.swing.JFrame {
         rbReservar = new javax.swing.JRadioButton();
         rbNoReservar = new javax.swing.JRadioButton();
         subirPay = new javax.swing.JButton();
+        totalPayLabel = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,7 +153,7 @@ public class PayFrame extends javax.swing.JFrame {
         jLabel1.setText("Reserva");
 
         reservGroup.add(rbReservar);
-        rbReservar.setText("Inmediata");
+        rbReservar.setText("Posterior");
         rbReservar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 rbReservarStateChanged(evt);
@@ -144,7 +166,7 @@ public class PayFrame extends javax.swing.JFrame {
         });
 
         reservGroup.add(rbNoReservar);
-        rbNoReservar.setText("Posterior");
+        rbNoReservar.setText("Inmediata");
         rbNoReservar.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 rbNoReservarStateChanged(evt);
@@ -187,6 +209,12 @@ public class PayFrame extends javax.swing.JFrame {
             }
         });
 
+        totalPayLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalPayLabel.setText("$0");
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Total a pagar : ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,24 +222,34 @@ public class PayFrame extends javax.swing.JFrame {
             .addComponent(payMethTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(subirPay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(subirPay, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(cardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(totalPayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(149, 149, 149))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(payMethTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(totalPayLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(subirPay)
                 .addContainerGap())
         );
@@ -238,9 +276,11 @@ public class PayFrame extends javax.swing.JFrame {
 		
 	}
 	
-	totalPay = debValue + credValue;
+	cbdebCard.setText(Integer.toString(debValue));
 	
-	System.out.println(totalPay);
+	paidValue = debValue + credValue;
+	
+	System.out.println(paidValue);
     }//GEN-LAST:event_cbdebCardActionPerformed
 
     private void cbcredCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbcredCardActionPerformed
@@ -257,9 +297,11 @@ public class PayFrame extends javax.swing.JFrame {
 			}
 		} while (err);
 		
-		totalPay = debValue + credValue;
+		cbcredCard.setText(Integer.toString(credValue));
+		
+		paidValue = debValue + credValue;
 	
-		System.out.println(totalPay);
+		System.out.println(paidValue);
 	}
     }//GEN-LAST:event_cbcredCardActionPerformed
 
@@ -270,13 +312,13 @@ public class PayFrame extends javax.swing.JFrame {
     private void rbReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbReservarActionPerformed
 	
 	if (rbReservar.isSelected() && go){
-		totalPay+=2600;
+		paidValue+=2600;
 		go = false;
 	}else if (!rbReservar.isSelected() && go){
-		totalPay -=2600;
+		paidValue -=2600;
 		go = true;
 	}
-	System.out.println(totalPay);
+	System.out.println(paidValue);
     }//GEN-LAST:event_rbReservarActionPerformed
 
     private void rbReservarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rbReservarStateChanged
@@ -285,13 +327,13 @@ public class PayFrame extends javax.swing.JFrame {
 
     private void rbNoReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNoReservarActionPerformed
 	if (rbNoReservar.isSelected() && !go){
-		totalPay-=2600;
+		paidValue-=2600;
 		go = true;
 	}else if (!rbNoReservar.isSelected() && !go){
-		totalPay +=2600;
+		paidValue +=2600;
 		go = false;
 	}
-	System.out.println(totalPay);	
+	System.out.println(paidValue);	
     }//GEN-LAST:event_rbNoReservarActionPerformed
 
     private void rbNoReservarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_rbNoReservarStateChanged
@@ -299,11 +341,24 @@ public class PayFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_rbNoReservarStateChanged
 
     private void subirPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subirPayActionPerformed
+	int rest = 0;
 	if ( !cbdebCard.isSelected() && !cbcredCard.isSelected() || cbcredCard.isSelected() && !rbvalidCred.isSelected() ||
 										!rbReservar.isSelected() && !rbNoReservar.isSelected() )
 		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "Tickets No Reservados", JOptionPane.ERROR_MESSAGE);
 	else
-		JOptionPane.showMessageDialog(null,"Su total a pagar es de: $"+totalPay, "Tickets Pagados", JOptionPane.INFORMATION_MESSAGE);
+		if (paidValue== totalPay){
+			JOptionPane.showMessageDialog(null,"Su total a pagar es de: $"+paidValue, "Tickets Pagados", JOptionPane.INFORMATION_MESSAGE);
+//			caso favorable
+			System.out.println("pagado");
+		}else if (paidValue < totalPay){
+			rest = totalPay-paidValue;
+			JOptionPane.showMessageDialog(null,"Le faltan : $ "+rest, "Saldo Insuficiente", JOptionPane.INFORMATION_MESSAGE);
+		}else if (paidValue > totalPay){
+			rest  = paidValue-totalPay;
+			JOptionPane.showMessageDialog(null,"Le sobran : $ "+rest, "Saldo Sobreestimado", JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+		
     }//GEN-LAST:event_subirPayActionPerformed
 
 	/**
@@ -349,6 +404,7 @@ public class PayFrame extends javax.swing.JFrame {
     private javax.swing.JLabel credCardTitle;
     private javax.swing.JLabel debCardtitle;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel payMethTitle;
     private javax.swing.JRadioButton rbNoReservar;
@@ -356,5 +412,6 @@ public class PayFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbvalidCred;
     private javax.swing.ButtonGroup reservGroup;
     private javax.swing.JButton subirPay;
+    private javax.swing.JLabel totalPayLabel;
     // End of variables declaration//GEN-END:variables
 }

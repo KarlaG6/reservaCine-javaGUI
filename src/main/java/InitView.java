@@ -63,6 +63,7 @@ public class InitView extends javax.swing.JFrame {
 	void getValsChairs( ArrayList<String> finalChairs1, String movieName1){
 		chairs = finalChairs1;
 		movieName = movieName1;
+		movieEntradas =  finalChairs1.size();
 		if (!chairs.isEmpty())
 			chairPanLabel.setText(chairs.toString());
 			cbChairs.setSelected(true);
@@ -322,11 +323,11 @@ public class InitView extends javax.swing.JFrame {
     }//GEN-LAST:event_chairPanelMouseClicked
 
     private void payPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_payPanelMouseClicked
-//       PayFrame payFr = new PayFrame();
-//	   payFr.setVisible(true);
-//	this.setVisible(false);
-//	this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-//	this.dispose();
+	System.out.println(movieEntradas);
+	new  PayFrame(movieName,movieEntradas).setVisible(true);
+	this.setVisible(false);
+	this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+	this.dispose();
 	   
     }//GEN-LAST:event_payPanelMouseClicked
 

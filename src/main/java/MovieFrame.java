@@ -349,7 +349,7 @@ public class MovieFrame extends javax.swing.JFrame {
 //		Inicio.setVisible(true);
 //		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 //		this.dispose();
-		new InitView( movieName,listo).setVisible(true);
+		new InitView(movieName, movieFunc, movieSala, movieEntradas, currentImg, listo).setVisible(true);
 		this.setVisible(false);
 	}else
 		JOptionPane.showMessageDialog(null,"Todos los campos son obligatorios", "Tickets No Reservados", JOptionPane.ERROR_MESSAGE);

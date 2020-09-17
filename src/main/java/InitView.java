@@ -17,9 +17,9 @@ public class InitView extends javax.swing.JFrame {
 
 	boolean listoMovie = false;
 	String movieName = "", movieFunc = "",  movieSala = ""; int movieEntradas = 0; ImageIcon currentImg; boolean listo = false;
-//	String movieName, String movieFunc, String movieSala, int movieEntradas, ImageIcon currentImg,
-//	movieName,movieFunc, movieSala, movieEntradas, currentImg,
-//	String movieName1, String movieFunc1, String movieSala1, int movieEntradas1, ImageIcon currentImg1,
+//	
+//	
+//	
 	
 	/**
 	 * Creates new form InitView
@@ -29,14 +29,15 @@ public class InitView extends javax.swing.JFrame {
 		getContentPane().setBackground(Color.BLACK);
 	}
 
-	public InitView(String movieName, boolean listo) {
+	public InitView(String movieName, String movieFunc, String movieSala, int movieEntradas, ImageIcon currentImg,boolean listo) {
 		initComponents();
 		
-		getValues( movieName, listo);
+		getValues( movieName, movieFunc, movieSala, movieEntradas, currentImg, listo);
 	}
-	
-	void getValues( String movieName1, boolean listo1){
+		
+	void getValues( String movieName1, String movieFunc1, String movieSala1, int movieEntradas1, ImageIcon currentImg1, boolean listo1){
 		listoMovie = listo1;
+		movieEntradas =  movieEntradas1;
 		if (listo1){
 			cbMovie.setSelected(true);
 //			moviePanel.setBackground(Color.PINK);
@@ -130,6 +131,11 @@ public class InitView extends javax.swing.JFrame {
         );
 
         chairPanel.setBackground(new java.awt.Color(102, 102, 102));
+        chairPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chairPanelMouseClicked(evt);
+            }
+        });
 
         cbChairs.setBackground(new java.awt.Color(102, 102, 102));
         cbChairs.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -269,8 +275,20 @@ public class InitView extends javax.swing.JFrame {
        if (listo)
 		JOptionPane.showMessageDialog(rootPane,movieName, movieSala, HEIGHT, currentImg);
 	
-	
     }//GEN-LAST:event_formWindowActivated
+
+    private void chairPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chairPanelMouseClicked
+       
+	if (listoMovie){
+		ChairsFrame chairsFr = new ChairsFrame(movieEntradas);
+		chairsFr.setVisible(true);
+		this.setVisible(false);
+		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+		this.dispose();
+	}else
+		JOptionPane.showMessageDialog(null,"Debe elegir primero una pelicula haciendo click en la tarjeta de pelicula", "Pelicula No Elegida", JOptionPane.ERROR_MESSAGE);
+	
+    }//GEN-LAST:event_chairPanelMouseClicked
 
 	/**
 	 * @param args the command line arguments

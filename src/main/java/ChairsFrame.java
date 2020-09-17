@@ -10,11 +10,24 @@
  */
 public class ChairsFrame extends javax.swing.JFrame {
 
+	int movieEntradas = 0, nChairsSelected = 0, nChairsMissin = 0; String ChairMissingSt = "";
 	/**
 	 * Creates new form ChairsFrame
 	 */
 	public ChairsFrame() {
 		initComponents();
+	}
+	
+	public ChairsFrame(int movieEntradas) {
+		initComponents();
+		exeAlways(movieEntradas);
+	}
+	
+	void exeAlways (int nChairs){
+		nChairsMissin = nChairs;
+		
+		ChairMissingSt = Integer.toString(nChairs);
+		chairsMissing.setText(ChairMissingSt);
 	}
 
 	/**
@@ -26,12 +39,12 @@ public class ChairsFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        frameTitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        C0 = new javax.swing.JCheckBox();
+        A0 = new javax.swing.JCheckBox();
         B0 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        C0 = new javax.swing.JCheckBox();
+        D0 = new javax.swing.JCheckBox();
         A1 = new javax.swing.JCheckBox();
         B1 = new javax.swing.JCheckBox();
         C1 = new javax.swing.JCheckBox();
@@ -39,37 +52,95 @@ public class ChairsFrame extends javax.swing.JFrame {
         A2 = new javax.swing.JCheckBox();
         B2 = new javax.swing.JCheckBox();
         elegirAsientos = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        chairsMissing = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        E0 = new javax.swing.JCheckBox();
+        F0 = new javax.swing.JCheckBox();
+        G0 = new javax.swing.JCheckBox();
+        H0 = new javax.swing.JCheckBox();
+        E1 = new javax.swing.JCheckBox();
+        F1 = new javax.swing.JCheckBox();
+        G1 = new javax.swing.JCheckBox();
+        H1 = new javax.swing.JCheckBox();
+        G2 = new javax.swing.JCheckBox();
+        H2 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Elegir Asientos");
+        frameTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        frameTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        frameTitle.setText("Elegir Asientos");
 
-        C0.setText("A0");
+        A0.setText("A0");
+        A0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A0ActionPerformed(evt);
+            }
+        });
 
         B0.setText("B0");
-
-        jCheckBox4.setText("C0");
-
-        jCheckBox1.setText("D0");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        B0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                B0ActionPerformed(evt);
+            }
+        });
+
+        C0.setText("C0");
+        C0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C0ActionPerformed(evt);
+            }
+        });
+
+        D0.setText("D0");
+        D0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D0ActionPerformed(evt);
             }
         });
 
         A1.setText("A1");
+        A1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A1ActionPerformed(evt);
+            }
+        });
 
         B1.setText("B1");
+        B1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B1ActionPerformed(evt);
+            }
+        });
 
         C1.setText("C1");
+        C1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                C1ActionPerformed(evt);
+            }
+        });
 
         D1.setText("D1");
+        D1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                D1ActionPerformed(evt);
+            }
+        });
 
         A2.setText("A2");
+        A2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                A2ActionPerformed(evt);
+            }
+        });
 
         B2.setText("B2");
+        B2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -79,7 +150,7 @@ public class ChairsFrame extends javax.swing.JFrame {
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(A2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(C0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(A0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(A1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -88,18 +159,18 @@ public class ChairsFrame extends javax.swing.JFrame {
                     .addComponent(B2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jCheckBox4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(C0, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(C1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
+                    .addComponent(D0)
                     .addComponent(D1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 72, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(A2)
                     .addComponent(B2))
@@ -111,13 +182,144 @@ public class ChairsFrame extends javax.swing.JFrame {
                     .addComponent(D1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(C0)
+                    .addComponent(A0)
                     .addComponent(B0)
-                    .addComponent(jCheckBox4)
-                    .addComponent(jCheckBox1)))
+                    .addComponent(C0)
+                    .addComponent(D0)))
         );
 
         elegirAsientos.setText("Elegir Asientos");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Asientos por elegir :");
+
+        chairsMissing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chairsMissing.setText("vaya a  elegir pelicula ome");
+
+        E0.setText("E0");
+        E0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E0ActionPerformed(evt);
+            }
+        });
+
+        F0.setText("F0");
+        F0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                F0ActionPerformed(evt);
+            }
+        });
+
+        G0.setText("G0");
+        G0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                G0ActionPerformed(evt);
+            }
+        });
+
+        H0.setText("H0");
+        H0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                H0ActionPerformed(evt);
+            }
+        });
+
+        E1.setText("E1");
+        E1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                E1ActionPerformed(evt);
+            }
+        });
+
+        F1.setText("F1");
+        F1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                F1ActionPerformed(evt);
+            }
+        });
+
+        G1.setText("G1");
+        G1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                G1ActionPerformed(evt);
+            }
+        });
+
+        H1.setText("H1");
+        H1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                H1ActionPerformed(evt);
+            }
+        });
+
+        G2.setText("G2");
+        G2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                G2ActionPerformed(evt);
+            }
+        });
+
+        H2.setText("H2");
+        H2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                H2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(E1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(E0, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(F0)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(G0)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(H0)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(G2)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(F1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(G1)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(H1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(H2)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(G2)
+                    .addComponent(H2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(E1)
+                    .addComponent(F1)
+                    .addComponent(G1)
+                    .addComponent(H1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(E0)
+                    .addComponent(F0)
+                    .addComponent(G0)
+                    .addComponent(H0)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -127,26 +329,40 @@ public class ChairsFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(frameTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(251, 251, 251)
-                                .addComponent(elegirAsientos)))
-                        .addGap(0, 388, Short.MAX_VALUE)))
+                                .addComponent(elegirAsientos))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 230, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chairsMissing)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(110, 110, 110)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(frameTitle)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chairsMissing, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(elegirAsientos)
                 .addGap(67, 67, 67))
         );
@@ -154,9 +370,165 @@ public class ChairsFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void D0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D0ActionPerformed
+       if (D0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_D0ActionPerformed
+
+    private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
+       if (A2.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_A2ActionPerformed
+
+    private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
+       if (A1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_A1ActionPerformed
+
+    private void A0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A0ActionPerformed
+       if (A0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_A0ActionPerformed
+
+    private void B0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B0ActionPerformed
+       if (B0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_B0ActionPerformed
+
+    private void B1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B1ActionPerformed
+       if (B1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_B1ActionPerformed
+
+    private void B2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B2ActionPerformed
+       if (B2.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_B2ActionPerformed
+
+    private void C0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C0ActionPerformed
+       if (C0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_C0ActionPerformed
+
+    private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
+       if (C1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_C1ActionPerformed
+
+    private void D1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D1ActionPerformed
+       if (D1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_D1ActionPerformed
+
+    private void E0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E0ActionPerformed
+       if (E0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_E0ActionPerformed
+
+    private void E1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_E1ActionPerformed
+       if (E1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_E1ActionPerformed
+
+    private void F0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F0ActionPerformed
+       if (F0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_F0ActionPerformed
+
+    private void F1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_F1ActionPerformed
+       if (F1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_F1ActionPerformed
+
+    private void G0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G0ActionPerformed
+       if (G0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_G0ActionPerformed
+
+    private void G1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G1ActionPerformed
+       if (G1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_G1ActionPerformed
+
+    private void G2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G2ActionPerformed
+       if (G2.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_G2ActionPerformed
+
+    private void H0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_H0ActionPerformed
+       if (H0.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_H0ActionPerformed
+
+    private void H1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_H1ActionPerformed
+       if (H1.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_H1ActionPerformed
+
+    private void H2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_H2ActionPerformed
+       if (H2.isSelected())
+		nChairsSelected++;
+	else
+		nChairsSelected--;
+	System.out.println(nChairsSelected);
+    }//GEN-LAST:event_H2ActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -194,6 +566,7 @@ public class ChairsFrame extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox A0;
     private javax.swing.JCheckBox A1;
     private javax.swing.JCheckBox A2;
     private javax.swing.JCheckBox B0;
@@ -201,11 +574,23 @@ public class ChairsFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox B2;
     private javax.swing.JCheckBox C0;
     private javax.swing.JCheckBox C1;
+    private javax.swing.JCheckBox D0;
     private javax.swing.JCheckBox D1;
+    private javax.swing.JCheckBox E0;
+    private javax.swing.JCheckBox E1;
+    private javax.swing.JCheckBox F0;
+    private javax.swing.JCheckBox F1;
+    private javax.swing.JCheckBox G0;
+    private javax.swing.JCheckBox G1;
+    private javax.swing.JCheckBox G2;
+    private javax.swing.JCheckBox H0;
+    private javax.swing.JCheckBox H1;
+    private javax.swing.JCheckBox H2;
+    private javax.swing.JLabel chairsMissing;
     private javax.swing.JButton elegirAsientos;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel frameTitle;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

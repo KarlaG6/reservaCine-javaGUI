@@ -156,6 +156,9 @@
           <Color blue="66" green="66" red="66" type="rgb"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="chairPanelMouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

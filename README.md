@@ -3,7 +3,7 @@ Mejorar:
 
     -Funcionalidad
         -usar objetos
-        -interconectar frames
+        -configurar elementos read-only
     -Visual
         -tema
         -estilo elementos

@@ -2,8 +2,9 @@
 Mejorar:
 
     -Funcionalidad
-        -usar objetos
+        -usar objetos (aplicar la clase u objeto Movie)
         -configurar elementos read-only
+        -eliminar redundancia
     -Visual
         -tema
         -estilo elementos
